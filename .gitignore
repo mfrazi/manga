@@ -1,0 +1,4 @@
+venv
+manga/*
+.idea/
+__pycache__

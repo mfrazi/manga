@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6">
+            <select class="custom-select mr-sm-2 select-chapter" onchange="selectChapter()">
+                {% for url in navigation['chapters'] %}
+                <option value="{{ url }}" {{ navigation['chapters'][url]['selected'] }}>{{ navigation['chapters'][url]['text'] }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <script>
+    function selectChapter(ctx) {
+        var chapter = document.getElementsByClassName("select-chapter");
+        if(typeof chapter[0].value == "undefined" || window.location.href.includes(chapter[0].value)) {
+            window.location.href = chapter[1].value;
+        } else {
+            window.location.href = chapter[0].value;
+        }
+    }
+    </script>
+
+</div>
+
+<br/>

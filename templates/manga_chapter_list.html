@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include 'header.html' %}
+    <title>{{ manga }}</title>
+</head>
+<body style="background-color: black">
+<div class="container-fluid mt-2">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb" style="background-color:black;">
+            <li class="breadcrumb-item"><a style="text-decoration:none" href="/">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ manga }}</li>
+        </ol>
+    </nav>
+</div>
+
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-12 col-md-5 ">
+            <ul class="list-group">
+            {% for c in chapters %}
+            <a style="text-decoration:none" href="{{ c }}">
+                <li class="list-group-item" style="border-radius: 0;">{{ chapters[c]['text'] }}</li>
+            </a>
+            {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+<br/>
+{% include 'footer.html' %}
+
+</body>
+</html>

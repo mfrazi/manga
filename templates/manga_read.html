@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include 'header.html' %}
+    <title>{{ manga['readable'] }} {{ chapter['readable'] }}</title>
+</head>
+<body style="background-color: black">
+<div class="container-fluid mt-2">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb" style="background-color:black;">
+            <li class="breadcrumb-item"><a style="text-decoration:none" href="/">Home</a></li>
+            <li class="breadcrumb-item" aria-current="page"><a style="text-decoration:none" href="/m/{{ manga['raw'] }}">{{ manga['readable'] }}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ chapter['readable'] }}</li>
+        </ol>
+    </nav>
+</div>
+
+
+{% include 'navigation_1.html' %}
+{% include 'navigation_2.html' %}
+
+{% for d in data %}
+<img class="img-fluid mx-auto d-block" src="{{ d }}">
+<br/>
+{% endfor %}
+
+{% include 'navigation_2.html' %}
+{% include 'navigation_1.html' %}
+
+{% include 'footer.html' %}
+
+</body>
+</html>
