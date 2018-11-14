@@ -29,5 +29,19 @@
 
 {% include 'footer.html' %}
 
+<script>
+    document.onkeydown = checkKey;
+    function checkKey(e) {
+        console.log("hoho");
+        e = e || window.event;
+        if (e.keyCode == '37') {
+           window.location.href = "{{ navigation['prev'] }}";
+        }
+        else if (e.keyCode == '39') {
+           window.location.href = "{{ navigation['next'] }}";
+        }
+    }
+</script>
+
 </body>
 </html>
