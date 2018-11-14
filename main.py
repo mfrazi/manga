@@ -72,6 +72,8 @@ def home_page():
 
     manga_list = dict()
     for m in manga_list_tmp:
+        if m[0] == ".":
+            continue
         manga_list[m] = beautify_manga_title(m)
 
     return render_template("manga_list.html", manga=manga_list)
