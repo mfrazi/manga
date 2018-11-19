@@ -1,4 +1,5 @@
 from flask import Flask, render_template, send_file
+from htmlmin.main import minify
 import os
 
 
@@ -62,6 +63,17 @@ def check_param(manga, chapter="*", img="*"):
 
 
 app = Flask(__name__)
+
+
+@app.after_request
+def response_minify(response):
+    if response.content_type == u'text/html; charset=utf-8':
+        response.set_data(
+            minify(response.get_data(as_text=True))
+        )
+
+        return response
+    return response
 
 
 @app.route("/")
