@@ -32,7 +32,6 @@
 <script>
     document.onkeydown = checkKey;
     function checkKey(e) {
-        console.log("hoho");
         e = e || window.event;
         if (e.keyCode == '37') {
            window.location.href = "{{ navigation['prev'] }}";
